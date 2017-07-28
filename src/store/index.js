@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// dynamically load all .js files from 'store/modules' folder and add to Vuex store definition
 const files = require.context('./modules', false, /\.js$/)
 let modules = {}
 files.keys().forEach((key) => {

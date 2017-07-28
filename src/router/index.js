@@ -3,8 +3,8 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+// dynamically load all .vue files from 'pages' folder and add corresponding routes
 const files = require.context('../pages', false, /\.vue$/)
-
 let routes = []
 files.keys().forEach((key) => {
   let page = files(key)
