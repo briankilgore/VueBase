@@ -9,7 +9,19 @@
 </template>
 
 <script>
+  export default {
+    data () {
 
+    },
+    computed: {
+    },
+    methods: {
+    },
+    mounted () {
+    },
+    components: {
+    }
+  }
 </script>
 
 <style scoped>
