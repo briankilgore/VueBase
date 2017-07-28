@@ -1,18 +1,8 @@
 <template>
   <v-app light>
-    <v-navigation-drawer
-      persistent
-      :clipped="true"
-      v-model="drawer"
-      enable-resize-watcher
-    >
+    <v-navigation-drawer persistent clipped v-model="drawer" enable-resize-watcher>
       <v-list>
-        <v-list-tile
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.name"
-          exact
-        >
+        <v-list-tile v-for="(item, i) in navItems" :key="i" :to="item.route" exact>
           <v-list-tile-action>
             <v-icon light v-html="item.icon"></v-icon>
           </v-list-tile-action>
@@ -28,12 +18,12 @@
     </v-toolbar>
     <main>
       <v-container fluid>
-        <v-slide-y-transition mode="out-in">
+        <v-slide-x-reverse-transition mode="out-in">
           <router-view></router-view>
-        </v-slide-y-transition>
+        </v-slide-x-reverse-transition>
       </v-container>
     </main>
-    <v-footer :fixed="fixed">
+    <v-footer fixed>
       <span>&copy; 2017</span>
     </v-footer>
   </v-app>
@@ -43,16 +33,11 @@
   export default {
     data () {
       return {
-        clipped: false,
         drawer: true,
-        fixed: true,
-        items: [
-          { icon: 'bubble_chart', title: 'Inspire', name: 'home' }
+        navItems: [
+          { icon: 'home', title: 'Home', route: { name: 'Home' } }
         ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'VueBase'
       }
     }
   }
